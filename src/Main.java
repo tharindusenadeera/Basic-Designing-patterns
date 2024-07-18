@@ -3,7 +3,7 @@ import factoryMethod.Vehicle;
 
 public class Main {
     public static void main(String[] args) {
-        // Factory method example
+        // Without Factory method example
         Client pClient = new Client(5);
         Vehicle pVehicle = pClient.getVehicle();
 
