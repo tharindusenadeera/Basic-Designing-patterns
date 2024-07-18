@@ -1,7 +1,15 @@
+import factoryMethod.Client;
+import factoryMethod.Vehicle;
+
 public class Main {
     public static void main(String[] args) {
-        String name = "Tharindu";
+        // Factory method example
+        Client pClient = new Client(5);
+        Vehicle pVehicle = pClient.getVehicle();
 
-        System.out.println(name);
+        if (pVehicle != null) {
+            pVehicle.printVehicle();
+        }
+        pClient.cleanUp();
     }
 }
