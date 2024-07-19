@@ -1,3 +1,5 @@
+import builderMethod.Phone;
+import builderMethod.PhoneBuilder;
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
@@ -17,5 +19,13 @@ public class Main {
         VehicleFactory vehicleFactory = new VehicleFactory();
         Vehicle vehicle = vehicleFactory.getInstance("two");
         vehicle.printVehicle();
+
+        // Without builder method example
+        Phone p = new Phone("Andriod", 1, "Octa Core", 5.5, 3100);
+        System.out.println(p);
+
+        // With builder method example
+        Phone phone = new PhoneBuilder().setOs("Android").setRam(1).getPhone();
+        System.out.println(phone);
     }
 }
