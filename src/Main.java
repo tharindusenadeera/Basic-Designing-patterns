@@ -1,5 +1,6 @@
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
+import factoryMethod.VehicleFactory;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,5 +12,10 @@ public class Main {
             pVehicle.printVehicle();
         }
         pClient.cleanUp();
+
+        // With Factory method example
+        VehicleFactory vehicleFactory = new VehicleFactory();
+        Vehicle vehicle = vehicleFactory.getInstance("two");
+        vehicle.printVehicle();
     }
 }
