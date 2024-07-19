@@ -3,6 +3,7 @@ import builderMethod.PhoneBuilder;
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
+import singletonMethod.SingleObject;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,5 +28,9 @@ public class Main {
         // With builder method example
         Phone phone = new PhoneBuilder().setOs("Android").setRam(1).getPhone();
         System.out.println(phone);
+
+        // With singleton method example
+        SingleObject singleObject = SingleObject.getSingleObject();
+        singleObject.showMessage();
     }
 }
