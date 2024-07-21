@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ddb5c6-204f-4781-a635-b67c63d1fa27" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/prototypeMethod/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prototypeMethod/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prototypeMethod/Square.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prototypeMethod/Squire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +60,13 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-96c0d24d" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
