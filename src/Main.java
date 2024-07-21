@@ -3,6 +3,8 @@ import builderMethod.PhoneBuilder;
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
+import prototypeMethod.Shape;
+import prototypeMethod.ShapeCache;
 import singletonMethod.SingleObject;
 
 public class Main {
@@ -32,5 +34,17 @@ public class Main {
         // With singleton method example
         SingleObject singleObject = SingleObject.getSingleObject();
         singleObject.showMessage();
+
+        // With Prototype method example
+        ShapeCache.loadCache();
+
+        Shape clonedShape = (Shape) ShapeCache.getShape("1");
+        System.out.println("Shape : " + clonedShape.getType());
+
+        Shape clonedShape2 = (Shape) ShapeCache.getShape("2");
+        System.out.println("Shape : " + clonedShape2.getType());
+
+        Shape clonedShape3 = (Shape) ShapeCache.getShape("3");
+        System.out.println("Shape : " + clonedShape3.getType());
     }
 }
