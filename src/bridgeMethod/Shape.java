@@ -1,11 +1,11 @@
 package bridgeMethod;
 
 public abstract class Shape{
-    public DrawAPI drawAPI;
+    protected DrawAPI drawAPI;
 
-    public Shape(){}
-
-    public String draw(){
-        return "Draw";
+    protected Shape(DrawAPI drawAPI){
+        this.drawAPI = drawAPI;
     }
+
+    public abstract void draw();
 }

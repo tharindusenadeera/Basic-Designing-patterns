@@ -1,5 +1,5 @@
 package bridgeMethod;
 
 public interface DrawAPI {
-    public void drawCircle();
+    public void drawCircle(int radius, int x, int y);
 }

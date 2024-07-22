@@ -1,4 +1,7 @@
 import adaptermethod.AudioPlayer;
+import bridgeMethod.Circle;
+import bridgeMethod.GreenCircle;
+import bridgeMethod.RedCircle;
 import builderMethod.Phone;
 import builderMethod.PhoneBuilder;
 import factoryMethod.Client;
@@ -55,5 +58,12 @@ public class Main {
         audioPlayer.play("mp4", "alone.mp4");
         audioPlayer.play("vlc", "far far away.vlc");
         audioPlayer.play("avi", "mind me.avi");
+
+        // With Bridge method example
+        bridgeMethod.Shape redCircle = new Circle(100,100, 10, new RedCircle());
+        bridgeMethod.Shape greenCircle = new Circle(100,100, 10, new GreenCircle());
+
+        redCircle.draw();
+        greenCircle.draw();
     }
 }
