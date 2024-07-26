@@ -9,6 +9,7 @@ import decoratorMethod.CircleD;
 import decoratorMethod.IShape;
 import decoratorMethod.RectangleD;
 import decoratorMethod.RedShapeDecorator;
+import facadeMethod.ShapeMaker;
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
@@ -134,7 +135,7 @@ public class Main {
             }
         }
 
-        // With decorator method example
+        // With Decorator method example
         IShape circleD = new CircleD();
         IShape redCircleD = new RedShapeDecorator(new CircleD());
         IShape redRectangleD = new RedShapeDecorator(new RectangleD());
@@ -146,6 +147,12 @@ public class Main {
 
         System.out.println("\nRectangle of red border");
         redRectangleD.draw();
+
+        // With Facade method example
+        ShapeMaker shapeMaker = new ShapeMaker();
+        shapeMaker.drawCircle();
+        shapeMaker.drawRectangle();
+        shapeMaker.drawSquare();
     }
 
     public static void printPersons(List<Person> persons){
