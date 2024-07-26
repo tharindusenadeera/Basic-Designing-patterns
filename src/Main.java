@@ -5,6 +5,10 @@ import bridgeMethod.RedCircle;
 import builderMethod.Phone;
 import builderMethod.PhoneBuilder;
 import compositeMethod.Employee;
+import decoratorMethod.CircleD;
+import decoratorMethod.IShape;
+import decoratorMethod.RectangleD;
+import decoratorMethod.RedShapeDecorator;
 import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
@@ -129,6 +133,19 @@ public class Main {
                 System.out.println(employee);
             }
         }
+
+        // With decorator method example
+        IShape circleD = new CircleD();
+        IShape redCircleD = new RedShapeDecorator(new CircleD());
+        IShape redRectangleD = new RedShapeDecorator(new RectangleD());
+        System.out.println("Circle with normal border");
+        circleD.draw();
+
+        System.out.println("\nCircle of red border");
+        redCircleD.draw();
+
+        System.out.println("\nRectangle of red border");
+        redRectangleD.draw();
     }
 
     public static void printPersons(List<Person> persons){
