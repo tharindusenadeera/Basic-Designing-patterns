@@ -16,6 +16,8 @@ import factoryMethod.VehicleFactory;
 import filterMethod.*;
 import prototypeMethod.Shape;
 import prototypeMethod.ShapeCache;
+import proxyMethod.Image;
+import proxyMethod.ProxyImage;
 import singletonMethod.SingleObject;
 
 import java.util.ArrayList;
@@ -153,6 +155,15 @@ public class Main {
         shapeMaker.drawCircle();
         shapeMaker.drawRectangle();
         shapeMaker.drawSquare();
+
+        // With Proxy method example
+        Image image = new ProxyImage("test_10mb.jpg");
+        //image will be loaded from disk
+        image.display();
+        System.out.println("");
+
+        //image will not be loaded from disk
+        image.display();
     }
 
     public static void printPersons(List<Person> persons){
