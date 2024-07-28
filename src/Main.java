@@ -14,6 +14,8 @@ import factoryMethod.Client;
 import factoryMethod.Vehicle;
 import factoryMethod.VehicleFactory;
 import filterMethod.*;
+import flyWeightMethod.CircleFly;
+import flyWeightMethod.ShapeFactoryFly;
 import prototypeMethod.Shape;
 import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    private static final String colors[] = { "Red", "Green", "Blue", "White", "Black" };
     public static void main(String[] args) {
         // Without Factory method example
         Client pClient = new Client(5);
@@ -164,11 +167,29 @@ public class Main {
 
         //image will not be loaded from disk
         image.display();
+
+        // With Flyweight method example
+        for (int i = 0; i < 20; i++) {
+            CircleFly circleFly = (CircleFly) ShapeFactoryFly.getCircle(getRandomColor());
+            circleFly.setX(getRandomX());
+            circleFly.setY(getRandomY());
+            circleFly.setRadius(100);
+            circleFly.draw();
+        }
     }
 
     public static void printPersons(List<Person> persons){
         for (Person person : persons) {
             System.out.println("Person : [ Name : " + person.getName() + ", Gender : " + person.getGender() + ", Marital Status : " + person.getMaritalStatus() + " ]");
         }
+    }
+    private static String getRandomColor() {
+        return colors[(int)(Math.random()*colors.length)];
+    }
+    private static int getRandomX() {
+        return (int)(Math.random()*100 );
+    }
+    private static int getRandomY() {
+        return (int)(Math.random()*100);
     }
 }
