@@ -4,6 +4,10 @@ import bridgeMethod.GreenCircle;
 import bridgeMethod.RedCircle;
 import builderMethod.Phone;
 import builderMethod.PhoneBuilder;
+import commandMethod.Broker;
+import commandMethod.BuyStock;
+import commandMethod.SellStock;
+import commandMethod.Stock;
 import compositeMethod.Employee;
 import decoratorMethod.CircleD;
 import decoratorMethod.IShape;
@@ -176,6 +180,18 @@ public class Main {
             circleFly.setRadius(100);
             circleFly.draw();
         }
+
+        // With Command method example
+        Stock stock = new Stock();
+
+        BuyStock buyStockOrder = new BuyStock(stock);
+        SellStock sellStockOrder = new SellStock(stock);
+
+        Broker broker = new Broker();
+        broker.takeOrder(buyStockOrder);
+        broker.takeOrder(sellStockOrder);
+
+        broker.placeOrders();
     }
 
     public static void printPersons(List<Person> persons){
