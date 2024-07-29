@@ -1,8 +1,17 @@
 package interpreterMethod;
 
 public class TerminalExpression implements IExpress{
-    @Override
-    public void interpret() {
+    private String data;
 
+    public TerminalExpression(String data){
+        this.data = data;
+    }
+    @Override
+    public boolean interpret(String context) {
+
+        if(context.contains(data)){
+            return true;
+        }
+        return false;
     }
 }

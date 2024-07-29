@@ -1,5 +1,5 @@
 package interpreterMethod;
 
 public interface IExpress {
-    public void interpret();
+    public boolean interpret(String context);
 }

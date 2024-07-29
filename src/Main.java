@@ -20,6 +20,10 @@ import factoryMethod.VehicleFactory;
 import filterMethod.*;
 import flyWeightMethod.CircleFly;
 import flyWeightMethod.ShapeFactoryFly;
+import interpreterMethod.AndExpression;
+import interpreterMethod.IExpress;
+import interpreterMethod.OrExpression;
+import interpreterMethod.TerminalExpression;
 import prototypeMethod.Shape;
 import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
@@ -192,6 +196,13 @@ public class Main {
         broker.takeOrder(sellStockOrder);
 
         broker.placeOrders();
+
+        // With Interpreter method example
+        IExpress isMale = getMaleExpression();
+        IExpress isMarriedWoman = getMarriedWomanExpression();
+
+        System.out.println("John is male? " + isMale.interpret("John"));
+        System.out.println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
     }
 
     public static void printPersons(List<Person> persons){
@@ -207,5 +218,19 @@ public class Main {
     }
     private static int getRandomY() {
         return (int)(Math.random()*100);
+    }
+
+    //Rule: Robert and John are male
+    public static IExpress getMaleExpression(){
+        IExpress robert = new TerminalExpression("Robert");
+        IExpress john = new TerminalExpression("John");
+        return new OrExpression(robert, john);
+    }
+
+    //Rule: Julie is a married women
+    public static IExpress getMarriedWomanExpression(){
+        IExpress julie = new TerminalExpression("Julie");
+        IExpress married = new TerminalExpression("Married");
+        return new AndExpression(julie, married);
     }
 }
