@@ -24,6 +24,10 @@ import interpreterMethod.AndExpression;
 import interpreterMethod.IExpress;
 import interpreterMethod.OrExpression;
 import interpreterMethod.TerminalExpression;
+import observerMethod.BinaryObserver;
+import observerMethod.HexaObserver;
+import observerMethod.OctalObserver;
+import observerMethod.Subject;
 import prototypeMethod.Shape;
 import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
@@ -203,6 +207,18 @@ public class Main {
 
         System.out.println("John is male? " + isMale.interpret("John"));
         System.out.println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
+
+        // With Observer method example
+        Subject subject = new Subject();
+
+        new HexaObserver(subject);
+        new OctalObserver(subject);
+        new BinaryObserver(subject);
+
+        System.out.println("First state change: 15");
+        subject.setState(15);
+        System.out.println("Second state change: 10");
+        subject.setState(10);
     }
 
     public static void printPersons(List<Person> persons){
