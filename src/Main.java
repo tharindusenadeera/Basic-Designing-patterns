@@ -33,6 +33,10 @@ import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
 import proxyMethod.ProxyImage;
 import singletonMethod.SingleObject;
+import strategyMethod.Context;
+import strategyMethod.OperationAdd;
+import strategyMethod.OperationMultiply;
+import strategyMethod.OperationSubtract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -219,6 +223,16 @@ public class Main {
         subject.setState(15);
         System.out.println("Second state change: 10");
         subject.setState(10);
+
+        // With Strategy method example
+        Context context = new Context(new OperationAdd());
+        System.out.println("10 + 5 = " + context.executeOperation(10, 5));
+
+        context = new Context(new OperationSubtract());
+        System.out.println("10 - 5 = " + context.executeOperation(10, 5));
+
+        context = new Context(new OperationMultiply());
+        System.out.println("10 * 5 = " + context.executeOperation(10, 5));
     }
 
     public static void printPersons(List<Person> persons){
