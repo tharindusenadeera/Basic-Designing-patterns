@@ -24,6 +24,8 @@ import interpreterMethod.AndExpression;
 import interpreterMethod.IExpress;
 import interpreterMethod.OrExpression;
 import interpreterMethod.TerminalExpression;
+import mementoMethod.CareTaker;
+import mementoMethod.Originator;
 import observerMethod.BinaryObserver;
 import observerMethod.HexaObserver;
 import observerMethod.OctalObserver;
@@ -233,6 +235,25 @@ public class Main {
 
         context = new Context(new OperationMultiply());
         System.out.println("10 * 5 = " + context.executeOperation(10, 5));
+
+        // With Memento method example
+        Originator originator = new Originator();
+        CareTaker careTaker = new CareTaker();
+
+        originator.setState("State #1");
+        originator.setState("State #2");
+        careTaker.add(originator.saveStateToMemento());
+
+        originator.setState("State #3");
+        careTaker.add(originator.saveStateToMemento());
+
+        originator.setState("State #4");
+        System.out.println("Current State: " + originator.getState());
+
+        originator.getStateFromMemento(careTaker.get(0));
+        System.out.println("First saved State: " + originator.getState());
+        originator.getStateFromMemento(careTaker.get(1));
+        System.out.println("Second saved State: " + originator.getState());
     }
 
     public static void printPersons(List<Person> persons){
