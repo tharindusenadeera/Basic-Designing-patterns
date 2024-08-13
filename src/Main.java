@@ -35,6 +35,8 @@ import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
 import proxyMethod.ProxyImage;
 import singletonMethod.SingleObject;
+import stateMethod.StartState;
+import stateMethod.StopState;
 import strategyMethod.Context;
 import strategyMethod.OperationAdd;
 import strategyMethod.OperationMultiply;
@@ -254,6 +256,18 @@ public class Main {
         System.out.println("First saved State: " + originator.getState());
         originator.getStateFromMemento(careTaker.get(1));
         System.out.println("Second saved State: " + originator.getState());
+
+        // With State method example
+        stateMethod.Context contextState = new stateMethod.Context();
+        StartState startState = new StartState();
+        startState.doAction(contextState);
+
+        System.out.println(contextState.getiState().toString());
+
+        StopState stopState = new StopState();
+        stopState.doAction(contextState);
+
+        System.out.println(contextState.getiState().toString());
     }
 
     public static void printPersons(List<Person> persons){
