@@ -26,6 +26,8 @@ import interpreterMethod.OrExpression;
 import interpreterMethod.TerminalExpression;
 import mementoMethod.CareTaker;
 import mementoMethod.Originator;
+import nullObjectMethod.AbstractCustomer;
+import nullObjectMethod.CustomerFactory;
 import observerMethod.BinaryObserver;
 import observerMethod.HexaObserver;
 import observerMethod.OctalObserver;
@@ -268,6 +270,18 @@ public class Main {
         stopState.doAction(contextState);
 
         System.out.println(contextState.getiState().toString());
+
+        // With Null Object method example
+        AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
+        AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
+        AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");
+        AbstractCustomer customer4 = CustomerFactory.getCustomer("Laura");
+
+        System.out.println("Customers");
+        System.out.println(customer1.getName());
+        System.out.println(customer2.getName());
+        System.out.println(customer3.getName());
+        System.out.println(customer4.getName());
     }
 
     public static void printPersons(List<Person> persons){
