@@ -43,6 +43,9 @@ import strategyMethod.Context;
 import strategyMethod.OperationAdd;
 import strategyMethod.OperationMultiply;
 import strategyMethod.OperationSubtract;
+import templateClass.Cricket;
+import templateClass.Football;
+import templateClass.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -282,6 +285,13 @@ public class Main {
         System.out.println(customer2.getName());
         System.out.println(customer3.getName());
         System.out.println(customer4.getName());
+
+        // With Template method example
+        Game game = new Cricket();
+        game.play();
+        System.out.println();
+        game = new Football();
+        game.play();
     }
 
     public static void printPersons(List<Person> persons){
