@@ -26,6 +26,9 @@ import interpreterMethod.OrExpression;
 import interpreterMethod.TerminalExpression;
 import mementoMethod.CareTaker;
 import mementoMethod.Originator;
+import mvcMethod.Student;
+import mvcMethod.StudentController;
+import mvcMethod.StudentView;
 import nullObjectMethod.AbstractCustomer;
 import nullObjectMethod.CustomerFactory;
 import observerMethod.BinaryObserver;
@@ -292,6 +295,21 @@ public class Main {
         System.out.println();
         game = new Football();
         game.play();
+
+        // With MVC method example
+        //fetch student record based on his roll no from the database
+        Student model = retriveStudentFromDatabase();
+
+        //Create a view : to write student details on console
+        StudentView view = new StudentView();
+
+        StudentController controller = new StudentController(model, view);
+        controller.updateView();
+
+        //update model data
+        controller.setStudentName("John");
+
+        controller.updateView();
     }
 
     public static void printPersons(List<Person> persons){
@@ -321,5 +339,12 @@ public class Main {
         IExpress julie = new TerminalExpression("Julie");
         IExpress married = new TerminalExpression("Married");
         return new AndExpression(julie, married);
+    }
+
+    private static Student retriveStudentFromDatabase(){
+        Student student = new Student();
+        student.setName("Robert");
+        student.setRollNo("10");
+        return student;
     }
 }
