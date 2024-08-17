@@ -49,6 +49,9 @@ import strategyMethod.OperationSubtract;
 import templateClass.Cricket;
 import templateClass.Football;
 import templateClass.Game;
+import visitorMethod.Computer;
+import visitorMethod.ComputerPartDisplayVisitor;
+import visitorMethod.IComputerPart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -310,6 +313,10 @@ public class Main {
         controller.setStudentName("John");
 
         controller.updateView();
+
+        // With Visitor method example
+        IComputerPart iComputerPart = new Computer();
+        iComputerPart.accept(new ComputerPartDisplayVisitor());
     }
 
     public static void printPersons(List<Person> persons){
