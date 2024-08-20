@@ -24,6 +24,7 @@ import interpreterMethod.AndExpression;
 import interpreterMethod.IExpress;
 import interpreterMethod.OrExpression;
 import interpreterMethod.TerminalExpression;
+import mediatorMethod.User;
 import mementoMethod.CareTaker;
 import mementoMethod.Originator;
 import mvcMethod.Student;
@@ -317,6 +318,13 @@ public class Main {
         // With Visitor method example
         IComputerPart iComputerPart = new Computer();
         iComputerPart.accept(new ComputerPartDisplayVisitor());
+
+        // With Mediator method example
+        User robert = new User("Robert");
+        User john = new User("John");
+
+        robert.sendMessage("Hi! John!");
+        john.sendMessage("Hello! Robert!");
     }
 
     public static void printPersons(List<Person> persons){
