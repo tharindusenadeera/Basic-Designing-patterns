@@ -9,6 +9,8 @@ import commandMethod.BuyStock;
 import commandMethod.SellStock;
 import commandMethod.Stock;
 import compositeMethod.Employee;
+import dataAccessObjectMethod.StudentDTO;
+import dataAccessObjectMethod.StudentDTOImpl;
 import decoratorMethod.CircleD;
 import decoratorMethod.IShape;
 import decoratorMethod.RectangleD;
@@ -343,6 +345,22 @@ public class Main {
         //get the student
         student = studentBusinessObject.getStudent(0);
         System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+
+        StudentDTO studentDTO = new StudentDTOImpl();
+
+        //print all students
+        for (dataAccessObjectMethod.Student studentDAO : studentDTO.getAllStudents()) {
+            System.out.println("Student: [RollNo : " + studentDAO.getRollNo() + ", Name : " + studentDAO.getName() + " ]");
+        }
+
+        //update student
+        dataAccessObjectMethod.Student studentDAO =studentDTO.getAllStudents().get(0);
+        studentDAO.setName("Michael");
+        studentDTO.updateStudent(studentDAO);
+
+        //get the student
+        studentDTO.getStudent(0);
+        System.out.println("Student: [RollNo : " + studentDAO.getRollNo() + ", Name : " + studentDAO.getName() + " ]");
     }
 
     public static void printPersons(List<Person> persons){
