@@ -22,6 +22,7 @@ import factoryMethod.VehicleFactory;
 import filterMethod.*;
 import flyWeightMethod.CircleFly;
 import flyWeightMethod.ShapeFactoryFly;
+import frontControllerMethod.FrontController;
 import interpreterMethod.AndExpression;
 import interpreterMethod.IExpress;
 import interpreterMethod.OrExpression;
@@ -361,6 +362,11 @@ public class Main {
         //get the student
         studentDTO.getStudent(0);
         System.out.println("Student: [RollNo : " + studentDAO.getRollNo() + ", Name : " + studentDAO.getName() + " ]");
+
+        // with Front controller method example
+        FrontController frontController = new FrontController();
+        frontController.dispatchRequest("HOME");
+        frontController.dispatchRequest("STUDENT");
     }
 
     public static void printPersons(List<Person> persons){
