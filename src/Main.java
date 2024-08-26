@@ -43,6 +43,8 @@ import prototypeMethod.Shape;
 import prototypeMethod.ShapeCache;
 import proxyMethod.Image;
 import proxyMethod.ProxyImage;
+import serviceLocatorMethod.Service;
+import serviceLocatorMethod.ServiceLocator;
 import singletonMethod.SingleObject;
 import stateMethod.StartState;
 import stateMethod.StopState;
@@ -367,6 +369,16 @@ public class Main {
         FrontController frontController = new FrontController();
         frontController.dispatchRequest("HOME");
         frontController.dispatchRequest("STUDENT");
+
+        // with Service Locator method example
+        Service service = ServiceLocator.getService("Service1");
+        service.execute();
+        service = ServiceLocator.getService("Service2");
+        service.execute();
+        service = ServiceLocator.getService("Service1");
+        service.execute();
+        service = ServiceLocator.getService("Service2");
+        service.execute();
     }
 
     public static void printPersons(List<Person> persons){
