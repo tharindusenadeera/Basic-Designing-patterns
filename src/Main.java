@@ -4,6 +4,7 @@ import bridgeMethod.GreenCircle;
 import bridgeMethod.RedCircle;
 import builderMethod.Phone;
 import builderMethod.PhoneBuilder;
+import businessDelegationMethod.BusinessDelegate;
 import chainOfResponsibilityMethod.AbstractLogger;
 import chainOfResponsibilityMethod.ConsoleLogger;
 import chainOfResponsibilityMethod.ErrorLogger;
@@ -395,6 +396,16 @@ public class Main {
 
         loggerChain.logMessage(AbstractLogger.ERROR,
                 "This is an error information.");
+
+        // with Business Delegate method example
+        BusinessDelegate businessDelegate = new BusinessDelegate();
+        businessDelegate.setServiceType("EJB");
+
+        businessDelegationMethod.Client client = new businessDelegationMethod.Client(businessDelegate);
+        client.doTask();
+
+        businessDelegate.setServiceType("JMS");
+        client.doTask();
     }
 
     private static AbstractLogger getChainOfLoggers(){
