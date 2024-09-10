@@ -1,3 +1,5 @@
+import abstractFactoryMethod.AbstractFactory;
+import abstractFactoryMethod.FactoryProducer;
 import adaptermethod.AudioPlayer;
 import bridgeMethod.Circle;
 import bridgeMethod.GreenCircle;
@@ -406,6 +408,12 @@ public class Main {
 
         businessDelegate.setServiceType("JMS");
         client.doTask();
+
+        // with Abstract Factory method example
+        //get shape factory
+        AbstractFactory shapeFactory = FactoryProducer.getFactory(false);
+        //get an object of Shape Rectangle
+
     }
 
     private static AbstractLogger getChainOfLoggers(){
